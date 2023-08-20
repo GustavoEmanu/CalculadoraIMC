@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class MyCalculadoraApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Calculadora(),
@@ -26,7 +25,7 @@ class _CalculadoraEstado extends State<Calculadora> {
     double entrada2 = double.tryParse(controlaentrada2.text) ?? 0;
 
     setState(() {
-      double resultadoCalculado = entrada2/(entrada1 * entrada1) ;
+      double resultadoCalculado = entrada2 / (entrada1 * entrada1);
 
       resultado = resultadoCalculado;
       print(resultado);
@@ -43,7 +42,6 @@ class _CalculadoraEstado extends State<Calculadora> {
           child: Text("Calculadora IMC"),
         ),
         backgroundColor: Color.fromARGB(255, 0, 0, 0),
-
       ),
       backgroundColor: Color.fromARGB(255, 189, 184, 184),
       body: Padding(
@@ -51,19 +49,18 @@ class _CalculadoraEstado extends State<Calculadora> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+          children: <Widget>[
+            Image.asset('imagem/images.png'),
             TextField(
               keyboardType: TextInputType.number,
               controller: controlaentrada1,
               decoration: const InputDecoration(labelText: "Altura"),
             ),
-            
             TextField(
               keyboardType: TextInputType.number,
               controller: controlaentrada2,
               decoration: const InputDecoration(labelText: "Peso"),
             ),
-            
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -72,8 +69,7 @@ class _CalculadoraEstado extends State<Calculadora> {
                   onPressed: calcular,
                   child: const Text("Calcular"),
                   style: ElevatedButton.styleFrom(
-                    primary: const Color.fromARGB(255, 0, 0, 0)
-                  ),
+                      primary: const Color.fromARGB(255, 0, 0, 0)),
                 ),
               ],
             ),
@@ -81,8 +77,6 @@ class _CalculadoraEstado extends State<Calculadora> {
             Text(
               "Índice de massa corporal: $resultado",
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              
-              
             ),
           ],
         ),
